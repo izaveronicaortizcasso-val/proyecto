@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chickenland - ¡Diversión, Aventura y Más!</title>
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ==========================================
+           ESTILOS CSS (Diseño Pastel y Parque)
+           ========================================== */
+        :root {
+            --bg-pink: #fff0f5;
+            --card-bg: #ffffff;
+            --primary-pink: #ffb7b2;
+            --accent-yellow: #ffdfba;
+            --accent-mint: #baffc9;
+            --accent-blue: #bae1ff;
+            --text-color: #5c5252;
+            --heading-color: #ff6f91;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--bg-pink);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9aa2, #ffb7b2, #ffdfba);
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(255, 183, 178, 0.4);
+            border-bottom: 5px dashed #fff;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-emoji {
+            font-size: 4rem;
+            background: white;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.8rem;
+            margin: 0;
+            text-shadow: 3px 3px 0px #ff6f91;
+        }
+
+        .tagline {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: #5c5252;
+            background-color: white;
+            text-decoration: none;
+            padding: 8px 18px;
+            margin: 5px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #ff6f91;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Secciones */
+        .section {
+            padding: 50px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .hero-section {
+            background: linear-gradient(180deg, #ffdfba 0%, #ffffba 100%);
+            padding: 60px 20px;
+            border-bottom: 5px dotted #ffb7b2;
+        }
+
+        .hero-section h2 {
+            color: #ff6f91;
+            font-size: 2.2rem;
+            margin-top: 0;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 3px solid var(--accent-yellow);
+            border-radius: 20px;
+            padding: 25px;
+            width: 280px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #ff6f91;
+        }
+
+        /* Tienda Interactiva */
+        .shop-section {
+            background-color: #e8f8f5;
+            border-radius: 30px;
+            margin: 30px auto;
+            border: 4px dashed var(--accent-mint);
+        }
+
+        .shop-subtitle {
+            margin-bottom: 30px;
+        }
+
+        .store-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .products-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 2px solid var(--accent-blue);
+            text-align: left;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ffb7b2;
+            color: white;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .product-emoji {
+            font-size: 2.5rem;
+            float: left;
+            margin-right: 15px;
+        }
+
+        .product-card h3 {
+            margin: 0;
+            color: #ff6f91;
+            font-size: 1.2rem;
+        }
+
+        .price {
+            color: #48bb78;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+
+        .desc {
+            font-size: 0.9rem;
+            color: #718096;
+            margin: 5px 0 10px 0;
+        }
+
+        .btn-add {
+            background-color: var(--accent-mint);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #2c7a7b;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .btn-add:hover {
+            background-color: #81e6d9;
+        }
+
+        /* Carrito */
+        .cart-container {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            width: 300px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border: 3px solid var(--primary-pink);
+            text-align: left;
+        }
+
+        .cart-container h3 {
+            color: #ff6f91;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        #cart-items {
+            list-style: none;
+            padding: 0;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #edf2f7;
+            font-size: 0.95rem;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #a0aec0;
+            padding: 20px 0;
+        }
+
+        .cart-total {
+            font-size: 1.1rem;
+            text-align: right;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+
+        .btn-checkout {
+            background-color: #ff6f91;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-checkout:hover {
+            background-color: #ff477e;
+        }
+
+        /* Formulario de contacto */
+        .contact-section {
+            background-color: #fff;
+            border-radius: 30px;
+            margin: 30px auto;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 20px auto 0 auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 12px;
+            border-radius: 12px;
+            border: 2px solid var(--accent-yellow);
+            font-family: inherit;
+            font-size: 1rem;
+            background-color: #fffdf9;
+        }
+
+        .btn-pastel {
+            background-color: #ffb7b2;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 183, 178, 0.4);
+            transition: transform 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-pastel:hover {
+            transform: scale(1.05);
+            background-color: #ff9aa2;
+        }
+
+        footer {
+            background-color: #ff9aa2;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado con temática de parque de diversiones -->
+    <header>
+        <div class="header-content">
+            <div class="logo-emoji">🐥</div>
+            <div>
+                <h1>Chickenland</h1>
+                <p class="tagline">¡Diversión, aventura y más en el parque más tierno!</p>
+            </div>
+        </div>
+        <nav>
+            <a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="#atracciones"><i class="fa-solid fa-ferris-wheel"></i> Atracciones</a>
+            <a href="#tienda"><i class="fa-solid fa-store"></i> Tienda y Tickets</a>
+            <a href="#contacto"><i class="fa-solid fa-envelope"></i> Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Sección de Bienvenida -->
+        <section id="inicio" class="hero-section">
+            <h2>¡Ven a vivir la magia con nuestros amigos emplumados! 🎡</h2>
+            <p>Sumérgete en un mundo de alegría, algodón de azúcar y juegos mecánicos diseñados para toda la familia. ¡Descubre la gran aventura de Chickenland!</p>
+            <a href="#tienda" class="btn-pastel">¡Comprar Boletos y Souvenirs!</a>
+        </section>
+
+        <!-- Sección de Atracciones -->
+        <section id="atracciones" class="section">
+            <h2><i class="fa-solid fa-star"></i> Atracciones Destacadas</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🎢</div>
+                    <h3>Montaña Rusa del Pollito</h3>
+                    <p>Siente la emoción y la adrenalina con giros suaves y divertidos aptos para valientes aventureros.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎡</div>
+                    <h3>Gran Rueda Pastel</h3>
+                    <p>Disfruta de una vista panorámica maravillosa de todo el parque desde las alturas con luces de colores.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎠</div>
+                    <h3>Carrusel Mágico</h3>
+                    <p>Da un paseo encantador acompañado de música alegre y figuras entrañables de animales de granja.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Tienda Interactiva -->
+        <section id="tienda" class="section shop-section">
+            <h2><i class="fa-solid fa-ticket"></i> Tienda y Boletos Online</h2>
+            <p class="shop-subtitle">¡Selecciona tus productos favoritos, agrégalos al carrito y prepárate para la diversión!</p>
+
+            <div class="store-grid">
+                <!-- Productos -->
+                <div class="products-list">
+                    <div class="product-card">
+                        <span class="product-badge">Más Popular</span>
+                        <div class="product-emoji">🎟️</div>
+                        <h3>Pase General Infantil</h3>
+                        <p class="price">$15.00 USD</p>
+                        <p class="desc">Acceso ilimitado a todas las atracciones del parque por un día.</p>
+                        <button class="btn-add" onclick="agregarAlCarrito('Pase General Infantil', 15.00)">Agregar al Carrito</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-emoji">👨‍👩‍👧‍👦</div>
+                        <h3>Pase Familiar (x4)</h3>
+                        <p class="price">$50.00 USD</p>
+                        <p class="desc">Paquete especial para 4 personas con 2 algodones de azúcar incluidos.</p>
+                        <button class="btn-add" onclick="agregarAlCarrito('Pase Familiar (x4)', 50.00)">Agregar al Carrito</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-emoji">🐥</div>
+                        <h3>Peluche Oficial Pollito</h3>
+                        <p class="price">$12.50 USD</p>
+                        <p class="desc">Lleva a casa el recuerdo más tierno y suave de Chickenland.</p>
+                        <button class="btn-add" onclick="agregarAlCarrito('Peluche Oficial Pollito', 12.50)">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Carrito de Compras Funcional -->
+                <div class="cart-container">
+                    <h3><i class="fa-solid fa-cart-shopping"></i> Tu Carrito de Compras</h3>
+                    <ul id="cart-items">
+                        <li class="empty-cart">Tu carrito está vacío 🐣</li>
+                    </ul>
+                    <div class="cart-total">
+                        <strong>Total: $<span id="cart-total-price">0.00</span> USD</strong>
+                    </div>
+                    <button class="btn-checkout" onclick="finalizarCompra()">Finalizar Compra</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contacto" class="section contact-section">
+            <h2>¿Tienes Dudas o Quieres Celebrar tu Cumpleaños?</h2>
+            <p>Escríbenos y nuestro equipo de pollitos te responderá lo más pronto posible.</p>
+            <form onsubmit="enviarMensaje(event)" class="contact-form">
+                <input type="text" placeholder="Tu Nombre" required>
+                <input type="email" placeholder="Tu Correo Electrónico" required>
+                <textarea placeholder="Escribe tu mensaje aquí..." rows="4" required></textarea>
+                <button type="submit" class="btn-pastel">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Chickenland - ¡Diversión, Aventura y Más! 🐥✨ Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- ==========================================
+       LÓGICA JAVASCRIPT (Carrito y Tienda)
+       ========================================== -->
+    <script>
+        let carrito = [];
+
+        function agregarAlCarrito(nombre, precio) {
+            let productoExistente = carrito.find(item => item.name === nombre);
+            
+            if (productoExistente) {
+                productoExistente.quantity += 1;
+            } else {
+                carrito.push({ name: nombre, price: precio, quantity: 1 });
+            }
+            
+            actualizarCarrito();
+        }
+
+        function actualizarCarrito() {
+            let listaItems = document.getElementById("cart-items");
+            let totalPrecioSpan = document.getElementById("cart-total-price");
+            
+            listaItems.innerHTML = "";
+            
+            if (carrito.length === 0) {
+                listaItems.innerHTML = '<li class="empty-cart">Tu carrito está vacío 🐣</li>';
+                totalPrecioSpan.textContent = "0.00";
+                return;
+            }
+            
+            let total = 0;
+            
+            carrito.forEach((item) => {
+                let subtotal = item.price * item.quantity;
+                total += subtotal;
+                
+                let li = document.createElement("li");
+                li.className = "cart-item";
+                li.innerHTML = `
+                    <span>${item.name} (x${item.quantity})</span>
+                    <span>$${subtotal.toFixed(2)}</span>
+                `;
+                listaItems.appendChild(li);
+            });
+            
+            totalPrecioSpan.textContent = total.toFixed(2);
+        }
+
+        function finalizarCompra() {
+            if (carrito.length === 0) {
+                alert("¡Tu carrito está vacío! Agrega algún boleto o recuerdo primero 🐥");
+                return;
+            }
+            
+            alert("🎉 ¡Muchas gracias por tu compra en Chickenland! Te hemos enviado tus accesos y comprobante.");
+            carrito = [];
+            actualizarCarrito();
+        }
+
+        function enviarMensaje(event) {
+            event.preventDefault();
+            alert("💌 ¡Mensaje enviado con éxito! Un pollito mensajero se encargará de entregarlo al equipo de Chickenland.");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
